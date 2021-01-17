@@ -1,0 +1,96 @@
+water=400
+milk=540
+coffee=120
+cup=9
+money=550
+def show(water,milk,coffee,cup,money):
+    print("The coffee machine has:")
+    print(water,"of water")
+    print(milk,"of milk")
+    print(coffee,"of coffee beans")
+    print(cup ,"of disposable cups")
+    print('$%d of money' % money)
+
+print("Write action (buy, fill, take, remaining, exit):")
+action=input()
+print()
+while action!="exit":
+    
+    if action=="buy":
+         print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
+         want=input()
+         if want=="back":
+             pass
+         elif want=="1":
+             if water>=250 and coffee>=16 and cup>=1:
+                    print("I have enough resources, making you a coffee!")
+                    water=water-250
+                    coffee=coffee-16
+                    money=money+4
+                    cup=cup-1
+             elif water<250:
+                    print("Sorry, not enough water!")
+             elif coffee<16:
+                    print("Sorry, not enough coffee beans!")
+             elif cup<1:
+                    print("Sorry, not enough disposable cups!")
+                
+         elif want=="2":
+             if water>=350 and coffee>=20 and cup>=1 and milk>=20:
+                 print("I have enough resources, making you a coffee!")
+                 water=water-350
+                 coffee=coffee-20
+                 money=money+7
+                 cup=cup-1
+                 milk=milk-75
+             elif water<350:
+                 print("Sorry, not enough water!")
+             elif coffee<20:
+                 print("Sorry, not enough coffee beans!")
+             elif cup<1:
+                 print("Sorry, not enough disposable cups!")
+             elif milk<75:
+                 print("Sorry, not enough milk!")                       
+         elif want=="3":
+             if water>=200 and coffee>=12 and cup>=1 and milk>=100:
+                 print("I have enough resources, making you a coffee!")
+                 water=water-200
+                 coffee=coffee-12
+                 money=money+6
+                 cup=cup-1
+                 milk=milk-100
+             elif water<200:
+                 print("Sorry, not enough water!")
+             elif coffee<12:
+                 print("Sorry, not enough coffee beans!")
+             elif cup<1:
+                 print("Sorry, not enough disposable cups!")
+             elif milk<100:
+                 print("Sorry, not enough milk!")
+                
+               
+    elif action=="take":
+         print("I gave you $",money)
+         money=0
+         
+    elif action=="fill":
+         print("Write how many ml of water do you want to add:")
+         dod=int(input())
+         water=water+dod
+         print("Write how many ml of milk do you want to add:")
+         dod=int(input())
+         milk=milk+dod
+         print("Write how many grams of coffee beans do you want to add:")
+         dod=int(input())
+         coffee=coffee+dod
+         print("Write how many disposable cups of coffee do you want to add:")
+         dod=int(input())
+         cup=cup+dod
+         
+    elif action=="remaining":
+        show(water,milk,coffee,cup,money)
+    print()
+    print("Write action (buy, fill, take,remaining,exit):")
+    action=input()
+    print()
+    
